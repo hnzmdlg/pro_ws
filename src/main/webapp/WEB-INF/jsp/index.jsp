@@ -23,7 +23,7 @@
 <div class="easyui-layout" data-options="fit:true">
 <!-- 上 -->
 <div
-data-options="region:'north',height:100,title:'第一组项目展示中心',collapsidle:false" style="z-index:999999;background: url(${path}/images/66.jpg);background-size:100%，100%">
+data-options="region:'north',height:100,title:'第五组项目展示中心',collapsidle:false" style="z-index:999999;background: url(${path}/images/66.jpg);background-size:100%，100%">
 
  <div  align="right">
 

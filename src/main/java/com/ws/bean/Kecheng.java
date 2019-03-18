@@ -11,10 +11,13 @@ public class Kecheng implements Serializable {
     private  Integer lls;
     private  String lteacher;
     private  String oktime;
-    private  Integer ktype;
     private  String kdesc;
     private  String kurl;
 
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public Integer getId() {
         return id;
@@ -62,14 +65,6 @@ public class Kecheng implements Serializable {
 
     public void setOktime(String oktime) {
         this.oktime = oktime;
-    }
-
-    public Integer getKtype() {
-        return ktype;
-    }
-
-    public void setKtype(Integer ktype) {
-        this.ktype = ktype;
     }
 
     public String getKdesc() {

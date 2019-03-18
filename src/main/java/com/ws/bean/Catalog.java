@@ -1,5 +1,6 @@
 package com.ws.bean;
 
+import javax.persistence.Transient;
 import java.io.Serializable;
 
 public class Catalog implements Serializable {
@@ -8,6 +9,8 @@ public class Catalog implements Serializable {
     private Integer id;
     private String mlname;
     private Integer kid;
+    @Transient
+    private String kname;
 
     public Integer getId() {
         return id;
@@ -31,5 +34,17 @@ public class Catalog implements Serializable {
 
     public void setKid(Integer kid) {
         this.kid = kid;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getKname() {
+        return kname;
+    }
+
+    public void setKname(String kname) {
+        this.kname = kname;
     }
 }

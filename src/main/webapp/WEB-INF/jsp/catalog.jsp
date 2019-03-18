@@ -239,7 +239,8 @@
         columns:[[
             {field:'check',checkbox:true},
             {field:'id',title:'编号',width:100,align:'center'},
-            {field:'mlname',title:'课程目录',width:100,align:'center'},
+            {field:'kname',title:'课程',width:100,align:'center'},
+            {field:'mlname',title:'目录',width:100,align:'center'},
             {field:'tools',title:'操作', width:100,align:'center',formatter:function(value,row,index){
                     var str = "<a href='javascript:openUpdateBy("+row.id+")'>修改</a>"
                     str+="| <a href='javascript:deleteByid("+row.id+")'>删除</a>"

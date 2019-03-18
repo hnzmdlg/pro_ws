@@ -1,5 +1,5 @@
 package com.ws.bean;
-
+//
 import javax.persistence.Transient;
 import java.io.Serializable;
 

@@ -51,4 +51,8 @@ public class XinwenServiceImpl implements XinwenService {
             xinwenMapper.deleteAll(sid[i]);
         }
     }
+
+
+
+
 }

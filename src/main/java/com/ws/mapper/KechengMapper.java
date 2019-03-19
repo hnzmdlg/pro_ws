@@ -59,4 +59,7 @@ public interface KechengMapper {
     //通过审核
     @Update("UPDATE t_kecheng k set k.ttid=1 WHERE k.id =#{id}")
     void updatekechenId(Integer id);
+
+    @Select("SELECT * FROM t_kecheng  ORDER BY lls DESC LIMIT 4")
+    List<Kecheng> kechenglist();
 }

@@ -10,17 +10,17 @@ public class WebUser implements Serializable {
 
     private static final long serialVersionUID = -6357565301670515304L;
     private Integer id;
-    private String name;
-    private String pwd;
-    private String email;
-    private Integer sex;
+    private String name;//网站用户名称
+    private String pwd;//用户密码
+    private String email;//用户邮箱
+    private Integer sex;//性别  1男   女
 
-    private  Integer   member;
-    private   String  expiredate;
+    private  Integer   member;//是否是会员   1是   不是
+    private   String  expiredate;//注册时间
 
 
-    private  Integer   ttid;
-    private   String  phone;
+    private  Integer   ttid;//状态
+    private   String  phone;//手机号
 
 
 

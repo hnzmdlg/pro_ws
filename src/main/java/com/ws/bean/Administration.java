@@ -6,14 +6,14 @@ public class Administration implements Serializable  {
 
     private static final long serialVersionUID = -3832375323961109839L;
     private  Integer id;
-    private  String sdianji;
-    private  String kname;
+    private  String sdianji;//点击量
+    private  String kname;//热门课程名字
     private  Integer kss;
     private  Integer lls;
-    private  String lteacher;
+    private  String lteacher;//老师名字
     private  String oktime;
     private  Integer ktype;
-    private  String kdesc;
+    private  String kdesc;//介绍
     private  String kurl;
 
     public Integer getId() {

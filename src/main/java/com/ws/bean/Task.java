@@ -8,12 +8,12 @@ public class Task implements Serializable {
     private Integer id;
     private String uuid;
 
-    private String neirong;
+    private String neirong;//任务内容
     private String uid;
-    private String rdate;
-    private String rtype;
+    private String rdate;//发起任务时间
+    private String rtype;//性别   1  完成   未完成
 
-    private String uname;
+    private String uname;//执行任务人
 
     public String getUname() {
         return uname;

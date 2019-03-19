@@ -5,16 +5,16 @@ import java.io.Serializable;
 public class UserBean implements Serializable {
     private static final long serialVersionUID = -20686688340125054L;
     private Integer id;
-    private String name;
-    private String sex;
-    private String username;
-    private String userpwd;
-    private Integer age;
-    private String userimg;
+    private String name;//姓名
+    private String sex;//性别
+    private String username;//账号
+    private String userpwd;//密码
+    private Integer age;//年龄
+    private String userimg;//封面
     private String	registration_date	;//date	开号时间
     private Integer deptid; //部门id
     private Integer roleid; //角色id
-    private String phone;
+    private String phone;//手机号码
 
     //临时
     private  String dname; //部门名称

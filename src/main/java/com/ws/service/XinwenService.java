@@ -14,4 +14,5 @@ public interface XinwenService {
     Xinwen queryXinwenById(Integer id);
 
     void deleteAll(String id);
+
 }

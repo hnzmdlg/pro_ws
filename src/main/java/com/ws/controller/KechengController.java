@@ -1,6 +1,7 @@
 package com.ws.controller;
 
 import com.ws.bean.Kecheng;
+import com.ws.bean.Salary;
 import com.ws.service.KechengService;
 import com.ws.utils.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -119,5 +120,11 @@ public class KechengController {
     }
 
 
+    @RequestMapping("kechenglist")
+    @ResponseBody
+    public List<Kecheng> kechenglist(){
+        List<Kecheng>list = kechengService.kechenglist();
+        return list;
 
+    }
 }

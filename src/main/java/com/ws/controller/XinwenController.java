@@ -1,4 +1,5 @@
 package com.ws.controller;
+
 import com.ws.bean.Xinwen;
 import com.ws.service.XinwenService;
 import com.ws.utils.FileUtil;
@@ -80,6 +81,8 @@ public class XinwenController {
             return path;
         }
     }
+
+
 
 
 }

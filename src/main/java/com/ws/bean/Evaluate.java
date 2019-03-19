@@ -6,11 +6,11 @@ public class Evaluate implements Serializable {
 
     private static final long serialVersionUID = 1947356796781463195L;
     private  Integer id;
-    private  String puser;
+    private  String puser;//评论人id
     private  Integer kcid;
-    private  String contont;
-    private  String ptime;
-    private  Integer status;
+    private  String contont;//评论内容
+    private  String ptime;//评论时间
+    private  Integer status;//评论状态
 
 
     public Integer getId() {

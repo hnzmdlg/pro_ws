@@ -112,6 +112,24 @@ public class TreeController {
         return treeService.queryTree10(uid,tree);
     }
 
+    //薪资树
+    @RequestMapping("salaryTree")
+    @ResponseBody
+    public List<Tree> salaryTree(HttpSession session,Tree tree){
+        UserBean user = (UserBean) session.getAttribute("user");
+        Integer uid = user.getId();
+        return treeService.queryTree11(uid,tree);
+    }
+
+    //资讯管理树
+    @RequestMapping("seekTree")
+    @ResponseBody
+    public List<Tree> seekTree(HttpSession session,Tree tree){
+        UserBean user = (UserBean) session.getAttribute("user");
+        Integer uid = user.getId();
+        return treeService.queryTree12(uid,tree);
+    }
+
     //登陆 queryLogin
     //登录
     @RequestMapping("login")

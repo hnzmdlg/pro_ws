@@ -1,6 +1,7 @@
 package com.ws.mapper;
 
 
+import com.ws.bean.Kecheng;
 import com.ws.bean.Xinwen;
 import org.apache.ibatis.annotations.*;
 
@@ -12,7 +13,7 @@ public interface XinwenMapper {
     //@Select("select count(*) from t_xinwen")
     @Select("<script>"
             + "select count(*) from t_xinwen "
-            + " where 1=1 "
+            + " where 1=1 and ttid=1 "
             + " <if test='xinwen.content!=null'> "
             + " and content like '%${xinwen.content}%' "
             + "</if>"
@@ -24,7 +25,7 @@ public interface XinwenMapper {
     //@Select("SELECT * FROM t_xinwen  LIMIT #{start},#{rows}")
     @Select("<script>"
             + "SELECT * FROM t_xinwen "
-            + " where 1=1 "
+            + " where 1=1 and ttid=1 "
             + " <if test='xinwen.content!=null'> "
             + " and content like '%${xinwen.content}%' "
             + " LIMIT #{start},#{rows} "
@@ -36,7 +37,7 @@ public interface XinwenMapper {
     @Update("UPDATE t_xinwen SET content=#{content} ,createTime=#{createTime},createUser=#{createUser},url=#{url} where id=#{id}")
     void updateXinwen(Xinwen xinwen);
     //新增
-    @Insert("INSERT into t_xinwen(content,createTime,createUser,url) VALUES(#{content},#{createTime},#{createUser},#{url})")
+    @Insert("INSERT into t_xinwen(content,createTime,createUser,url,ttid) VALUES(#{content},#{createTime},#{createUser},#{url},0)")
     void addXinwen(Xinwen xinwen);
 //回显
 @Select("SELECT * FROM t_xinwen x where x.id=#{id}")
@@ -44,4 +45,6 @@ public interface XinwenMapper {
 //删除
 @Delete("delete from t_xinwen where id=#{s}")
     void deleteAll(String s);
+
+
 }

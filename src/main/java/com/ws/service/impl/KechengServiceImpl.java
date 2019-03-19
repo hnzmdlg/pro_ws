@@ -76,4 +76,9 @@ public class KechengServiceImpl implements KechengService {
     public void updatekechenId(Integer id) {
         kechengMapper.updatekechenId(id);
     }
+
+    @Override
+    public List<Kecheng> kechenglist() {
+        return kechengMapper.kechenglist();
+    }
 }

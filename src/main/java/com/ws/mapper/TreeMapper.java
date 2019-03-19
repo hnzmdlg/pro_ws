@@ -54,8 +54,13 @@ public interface TreeMapper {
     List<Tree> queryTree10(@Param("uid")Integer uid, Tree tree);
 
 
+    @Select("SELECT t.id,t.text,t.url,t.pid FROM t_tree t LEFT JOIN t_role_power rp on t.id = rp.power_id \n" +
+            "LEFT JOIN  t_role r on rp.role_id = r.id LEFT JOIN user u on r.id=u.roleid WHERE u.id=#{uid} and t.text like '%学员%'")
+    List<Tree> queryTree11(Integer uid, Tree tree);
 
-
+    @Select("SELECT t.id,t.text,t.url,t.pid FROM t_tree t LEFT JOIN t_role_power rp on t.id = rp.power_id \n" +
+            "LEFT JOIN  t_role r on rp.role_id = r.id LEFT JOIN user u on r.id=u.roleid WHERE u.id=#{uid} and t.text like '%资讯%'")
+    List<Tree> queryTree12(Integer uid, Tree tree);
 
     @Select("select * from user where username=#{username} ")
     UserBean queryUserByLoginNumber(String username);
@@ -84,6 +89,7 @@ public interface TreeMapper {
     //删除
     @Delete("delete  FROM t_prower_menu  where id=#{s} ")
     void deleteAll(String s);
+
 
 
 }

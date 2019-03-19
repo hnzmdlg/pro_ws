@@ -50,4 +50,7 @@ public interface TreeService {
     void deleteAll(String id);
 
 
+    List<Tree> queryTree11(Integer uid, Tree tree);
+
+    List<Tree> queryTree12(Integer uid, Tree tree);
 }

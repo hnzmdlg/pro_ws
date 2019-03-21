@@ -53,4 +53,9 @@ public class SeekServiceImpl implements SeekService {
     public Seek querySeekById(Integer id) {
         return seekMapper.querySeekById(id);
     }
+
+    @Override
+    public List<Seek> seektlot() {
+        return seekMapper.seektlot();
+    }
 }

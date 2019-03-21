@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Controller
 public class SeekController {
@@ -52,6 +53,14 @@ public class SeekController {
             //新增
             seekService.addAnswer(seek);
         }
+
+    }
+
+    @RequestMapping("seektlot")
+    @ResponseBody
+    public List<Seek> seektlot(){
+        List<Seek>list = seekService.seektlot();
+        return list;
 
     }
 }

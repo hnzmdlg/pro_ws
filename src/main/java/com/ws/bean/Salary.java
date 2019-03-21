@@ -32,6 +32,8 @@ public class Salary  implements Serializable {
      */
     private Double ensalary;
 
+    private Integer ttid;
+
     public Integer getId() {
         return id;
     }
@@ -78,5 +80,13 @@ public class Salary  implements Serializable {
 
     public void setEnsalary(Double ensalary) {
         this.ensalary = ensalary;
+    }
+
+    public Integer getTtid() {
+        return ttid;
+    }
+
+    public void setTtid(Integer ttid) {
+        this.ttid = ttid;
     }
 }

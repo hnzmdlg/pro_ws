@@ -38,11 +38,11 @@ public interface KechengMapper {
     @Delete("delete from t_kecheng where id=#{s}")
     void deleteAll(String s);
 //新增
-@Insert("INSERT into t_kecheng(kname,kss,lls,lteacher,oktime,ktype,kdesc,kurl,ttid) VALUES(#{kname},#{kss},#{lls},#{lteacher},#{oktime},#{ktype},#{kdesc},#{kurl},0)")
+@Insert("INSERT into t_kecheng(kname,kss,lls,lteacher,oktime,kdesc,kurl,ttid) VALUES(#{kname},#{kss},#{lls},#{lteacher},#{oktime},#{kdesc},#{kurl},0)")
     void addKecheng(Kecheng kecheng);
     //修改
 
-    @Update("UPDATE t_kecheng  SET kname=#{kname} ,kss=#{kss},lls=#{lls},lteacher=#{lteacher},oktime=#{oktime},ktype=#{ktype},kdesc=#{kdesc},kurl=#{kurl},ttid=1  where id=#{id}")
+    @Update("UPDATE t_kecheng  SET kname=#{kname} ,kss=#{kss},lls=#{lls},lteacher=#{lteacher},oktime=#{oktime},kdesc=#{kdesc},kurl=#{kurl},ttid=1  where id=#{id}")
     void updateKecheng(Kecheng kecheng);
     //回显
     @Select("SELECT * FROM t_kecheng c where c.id=#{id}")

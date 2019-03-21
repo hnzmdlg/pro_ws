@@ -7,14 +7,14 @@ import java.util.List;
 @Mapper
 public interface SalaryMapper {
 
-    @Select("select count(*) from t_salary ")
+    @Select("select count(*) from t_salary where ttid=1  ")
     long queryTotal(@Param("salary")Salary salary);
 
-    @Select("select * from t_salary LIMIT #{start},#{rows}")
+    @Select("select * from t_salary where  ttid=1  LIMIT #{start},#{rows}")
     List<Salary> queryPageProblem(@Param("start") int start, @Param("rows") int rows, @Param("salary") Salary salary);
 
     //新增
-    @Insert("INSERT INTO t_salary(name,city,schooling,salary,ensalary) VALUES(#{name},#{city},#{schooling},#{salary},#{ensalary})")
+    @Insert("INSERT INTO t_salary(name,city,schooling,salary,ensalary,ttid) VALUES(#{name},#{city},#{schooling},#{salary},#{ensalary},0)")
     void addAnswer(Salary salary);
 
     //修改

@@ -3,6 +3,7 @@ package com.ws.service;
 import com.ws.bean.Seek;
 
 import java.util.HashMap;
+import java.util.List;
 
 public interface SeekService {
     HashMap<String, Object> salaryanswer(int page, int rows, Seek seek);
@@ -14,4 +15,6 @@ public interface SeekService {
     void seekAll(String id);
 
     Seek querySeekById(Integer id);
+
+    List<Seek> seektlot();
 }

@@ -1,5 +1,6 @@
 package com.ws.service.impl;
 
+import com.ws.bean.Salary;
 import com.ws.bean.Xinwen;
 import com.ws.mapper.AuditingMapper;
 import com.ws.service.AuditingService;
@@ -23,4 +24,16 @@ public class AuditingServiceImpl implements AuditingService {
     public void updateauditingId(Integer id) {
         auditingMapper.updateauditingId(id);
     }
+
+    @Override
+    public List<Salary> salarytingId() {
+        return auditingMapper.salarytingId();
+    }
+
+    @Override
+    public void updatesalarytingId(Integer id) {
+        auditingMapper.updatesalarytingId(id);
+    }
+
+
 }

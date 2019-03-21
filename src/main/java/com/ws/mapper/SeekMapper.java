@@ -29,4 +29,7 @@ public interface SeekMapper {
     //回显
     @Select("SELECT * FROM t_seek  where id=#{id}")
     Seek querySeekById(Integer id);
+
+    @Select("select * from t_seek ")
+    List<Seek> seektlot();
 }

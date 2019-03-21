@@ -113,6 +113,7 @@ $("#myTable").datagrid({
         {field:'tools',title:'操作', width:100,align:'center',formatter:function(value,row,index){
             var str = "<a href='javascript:openUpdateBy("+row.id+")'>修改</a>"
             str+="| <a href='javascript:deleteByid("+row.id+")'>删除</a>"
+
             return str;
         }}
 	          

@@ -162,4 +162,10 @@ public class pageController {
         return "Seek";
     }
 
+    //跳转学员审核
+    @RequestMapping("salaryting")
+    public  String  salaryting(){
+
+        return "salaryList";
+    }
 }

@@ -29,14 +29,14 @@
 <body>
 
 <div id="searchDivk">
-<!---->
-   <%-- 课程名称：<input class="easyui-textbox" id="kname">
+    <!---->
+    <%--课程名称：<input class="easyui-textbox" id="kname">
 
     <a href="javascript:search()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
 --%>
 
     <a href="javascript:deleteBys()" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">批量删除</a>
-    <a href="javascript:openDig()" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">新增</a>
+
 
 </div>
 
@@ -49,47 +49,37 @@
     <form id="myForm" method="post">
         <input style="display:none" name="id">
         <table>
-            <tr>
-                <td>头像</td>
-                <td>
-                    <!-- 显示图片 -->
-                    <img width="100px" height="100px"  id="mypic">
-                    <!-- 文件域 上传图片 -->
-                    <div id="eimg"></div>
-                    <!-- 隐藏域 上传图片的路径 -->
-                    <input type="hidden" name="kurl"  id="create_user">
 
-                    <%--显示进度条--%>
-                    <div id="uploadfileQueue"></div>
+
+            <tr>
+                <td>姓名</td>
+                <td>
+                    <input class="easyui-textbox" name="name">
+                </td>
+            <tr>
+                <td>城市</td>
+                <td>
+                    <input class="easyui-textbox" name="city">
+                </td>
+
+            <tr>
+                <td>学历</td>
+                <td>
+                    <input class="easyui-textbox" name="schooling">
+                </td>
+            </tr>
+
+            </tr>
+            <tr>
+                <td>培训前薪资</td>
+                <td>
+                    <input class="easyui-textbox" name="salary">
                 </td>
             </tr>
             <tr>
-                <td>课程名称</td>
+                <td>培训后薪资</td>
                 <td>
-                    <input class="easyui-textbox" name="kname">
-                </td>
-            </tr>
-            <tr>
-                <td>课时数</td>
-                <td>
-                    <input class="easyui-textbox" name="kss">
-                </td>
-            <tr>
-                <td>教师的名字</td>
-                <td>
-                    <input class="easyui-textbox" name="lteacher">
-                </td>
-            </tr>
-            <tr>
-                <td>有效期</td>
-                <td>
-                    <input class="easyui-datebox" name="oktime">
-                </td>
-            </tr>
-            <tr>
-                <td>介绍</td>
-                <td>
-                    <input class="easyui-textbox" name="kdesc">
+                    <input class="easyui-textbox" name="ensalary">
                 </td>
             </tr>
 
@@ -110,84 +100,12 @@
 </body>
 <script>
 
-    //条件查询
-    function search(){
-        $("#myTablek").datagrid("load",{
-           /* kname:$("#kname").textbox("getValue")*/
-        })
-
-    }
-
-    //打开对话框
-    function openDig() {
-        //重置表单
-        $("#myForm").form("reset");
-        //清除图片隐藏域
-        $("#hideImg").val("");
-        //清除图片
-        $("#mypic").prop("src", "");
-        //清空富文本框
-        //editor.html("");
-
-
-        //打开
-        $("#myDialog").dialog({
-            title:'新增用户',
-            closed:false
-
-        })
-
-    }
-    //关闭对话框
-    function closeDig(){
-        $("#myDialog").dialog("close")
-
-    }
-
-    //修改：回显
-    function openUpdateBy(id){
-        //alert(id)
-        $.ajax({
-            url:"<%=request.getContextPath() %>/queryKechengById",
-            type:"post",
-            data:{"id":id},
-            success:function(data){
-
-
-                //数据回显
-                $("#myForm").form("load",data);
-                //回显：图片
-                $("#mypic").prop("src",data.kurl)
-
-
-                //弹框
-                $("#myDialog").dialog({
-                    title:"修改用户",
-                    closed:false
-                })
-            }
-        })
-    }
 
 
 
-    //新增
-    function add(){
-        $("#myForm").form("submit",{
-            url:"<%=request.getContextPath() %>/addKechen",
-            success:function(){
-                $.messager.alert("提示","保存成功","info")
-                //关闭弹框
-                $("#myDialog").dialog("close")
-                //关闭
-                closeDig()
-                //刷新
-                search()
-            }
 
-        })
 
-    }
+
 
     ///初始化uploadify
 
@@ -257,12 +175,12 @@
         $.messager.confirm("提示","是否确定删除!",function(r){
             if(r){
                 $.ajax({
-                    url:"<%=request.getContextPath() %>/deleteKechenAll",
+                    url:"<%=request.getContextPath() %>/deleteseekAll",
                     type:"post",
                     data:{"id":id},
                     success:function(){
                         $.messager.alert("提示消息","删除成功","info");
-                        search();
+                        $('#myTablek').datagrid('reload');
                     },error:function(){
                         $.messager.alert("提示消息","删除失败","error");
 
@@ -301,12 +219,12 @@
 
             //alert(ids)
             $.ajax({
-                url:"<%=request.getContextPath() %>/deleteKechenAll",
+                url:"<%=request.getContextPath() %>/deleteseekAll",
                 type:"post",
                 data:{"id":ids},
                 success:function(){
                     $.messager.alert("提示消息","删除成功","info");
-                    search();
+                    $('#myTablek').datagrid('reload');
                 },error:function(){
                     $.messager.alert("提示消息","删除失败","error");
 
@@ -316,37 +234,56 @@
 
         })
     }
+    //审核通过
+    function  updateseekby(id) {
+        //alert(id)
+        $.messager.confirm("提示","是否通过审核吗!",function(r){
+            if(r){
+                $.ajax({
+                    url:"<%=request.getContextPath() %>/updateseek",
+                    type:"post",
+                    data:{"id":id},
+                    success:function(){
+                        $.messager.alert("提示消息","审核成功","info");
+                        $('#myTablek').datagrid('reload');
+                    },error:function(){
+                        $.messager.alert("提示消息","审核失败","error");
 
+
+                    }
+                })
+
+            }
+
+        })
+    }
 
     //查询
     $("#myTablek").datagrid({
-        url:"<%=request.getContextPath()%>/querykecheneeee",
+
+        url:"<%=request.getContextPath()%>/tosqeekid",
         columns:[[
             {field:'check',checkbox:true},
-            {field:'id',title:'编号',width:100,align:'center'},
-            {field:'kname',title:'课程名称',width:100,align:'center'},
-            {field:'kss',title:'课时数',width:100,align:'center'},
-            {field:'lls',title:'浏览数',width:100,align:'center'},
-            {field:'lteacher',title:'教师名字',width:100,align:'center'},
-            {field:'oktime',title:'有效时间',width:100,align:'center'},
-            {field:'kdesc',title:'课程介绍',width:100,align:'center'},
-            {field:'kurl',title:'封面',width:100,align:'center',formatter:function(value,row,index){
-                    return "<img width='50px' height='50px' src='"+value+"'>";
-                }},
-            {field:'tools',title:'操作',width:100,align:'center',formatter:function(value,row,index){
-                    var str = "<a href='javascript:openUpdateBy("+row.id+")'>修改</a>"
+            {field:'id',title:'编号'},
+            {field:'name',title:'姓名',width:100},
+            {field:'url',title:'地址',width:100},
+
+            {field:'tools',title:'操作', width:100,align:'center',formatter:function(value,row,index){
+                    var str = "<a href='javascript:updateseekby("+row.id+")'>审核通过</a>"
                     str+="| <a href='javascript:deleteByid("+row.id+")'>删除</a>"
                     return str;
                 }}
 
         ]],
         pagination:true,//开启分页
-        pageList:[1,2,3,5,15,20], //初始化页面大小选择列表
-       pageSize:3 , //初始化每页显示条数，默认是10
+        pageList:[3,5,15,20,30,50], //初始化页面大小选择列表
+        pageSize:3 , //初始化每页显示条数，默认是10
         pageNumber:1, //当前页,默认是1
         fit:true,
         toolbar:"#searchDivk",
         pagePosition:"top"
     })
+
+
 </script>
 </html>

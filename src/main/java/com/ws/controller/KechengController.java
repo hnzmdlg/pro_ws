@@ -1,5 +1,6 @@
 package com.ws.controller;
 
+import com.ws.bean.Catalog;
 import com.ws.bean.Kecheng;
 import com.ws.bean.Salary;
 import com.ws.service.KechengService;
@@ -120,11 +121,23 @@ public class KechengController {
     }
 
 
+    //查询课程
     @RequestMapping("kechenglist")
     @ResponseBody
-    public List<Kecheng> kechenglist(){
-        List<Kecheng>list = kechengService.kechenglist();
+    public List<Catalog> kechenglist(){
+        List<Catalog>list = kechengService.kechenglist();
         return list;
 
     }
+
+    //最新课程
+    @RequestMapping("querykechenglist")
+    @ResponseBody
+    public List<Catalog> querykechenglist(){
+        List<Catalog>list = kechengService.querykechenglist();
+        return list;
+
+    }
+
+
 }

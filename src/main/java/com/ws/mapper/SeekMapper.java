@@ -8,10 +8,10 @@ import java.util.List;
 @Mapper
 public interface SeekMapper {
 
-    @Select("select count(*) from t_seek")
+    @Select("select count(*) from t_seek where  ttid=1")
     long queryTotal(Seek seek);
 
-    @Select("select * from t_seek LIMIT #{start},#{rows}")
+    @Select("select * from t_seek where  ttid=1 LIMIT #{start},#{rows}")
     List<Seek> queryPageProblem(int start, int rows, Seek seek);
 
     //修改
@@ -19,7 +19,7 @@ public interface SeekMapper {
     void updateAnswer(Seek seek);
 
     //新增
-    @Insert("INSERT INTO t_seek(name,url) VALUES(#{name},#{url})")
+    @Insert("INSERT INTO t_seek(name,url,ttid) VALUES(#{name},#{url},0)")
     void addAnswer(Seek seek);
 
     //删除

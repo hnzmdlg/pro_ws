@@ -1,5 +1,6 @@
 package com.ws.mapper;
 
+import com.ws.bean.Catalog;
 import com.ws.bean.Kecheng;
 import org.apache.ibatis.annotations.*;
 import org.springframework.data.repository.query.Param;
@@ -60,6 +61,13 @@ public interface KechengMapper {
     @Update("UPDATE t_kecheng k set k.ttid=1 WHERE k.id =#{id}")
     void updatekechenId(Integer id);
 
-    @Select("SELECT * FROM t_kecheng  ORDER BY lls DESC LIMIT 4")
-    List<Kecheng> kechenglist();
+    @Select("SELECT * FROM t_catalog  ORDER BY lls DESC LIMIT 4")
+    List<Catalog> kechenglist();
+
+    //最新课程
+    @Select("SELECT * FROM t_catalog  ORDER BY oktime DESC LIMIT 4")
+    List<Catalog> querykechenglist();
+
+
+
 }

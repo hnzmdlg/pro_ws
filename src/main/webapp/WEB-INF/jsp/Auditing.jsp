@@ -343,7 +343,7 @@
 
         ]],
         pagination:true,//开启分页
-        pageList:[1,2,3,4,5,6], //初始化页面大小选择列表
+        pageList:[3,5,15,20,30,50], //初始化页面大小选择列表
         pageSize:3 , //初始化每页显示条数，默认是10
         pageNumber:1, //当前页,默认是1
         fit:true,

@@ -1,5 +1,6 @@
 package com.ws.service.impl;
 
+import com.ws.bean.Catalog;
 import com.ws.bean.Kecheng;
 import com.ws.mapper.KechengMapper;
 import com.ws.service.KechengService;
@@ -78,7 +79,16 @@ public class KechengServiceImpl implements KechengService {
     }
 
     @Override
-    public List<Kecheng> kechenglist() {
+    public List<Catalog> kechenglist() {
         return kechengMapper.kechenglist();
     }
+
+    @Override
+    public List<Catalog> querykechenglist() {
+        return kechengMapper.querykechenglist();
+    }
+
+
+
+
 }

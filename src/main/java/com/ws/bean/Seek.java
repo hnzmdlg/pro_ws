@@ -16,6 +16,8 @@ public class Seek implements Serializable {
      */
     private String url;
 
+    private Integer ttid;
+
     public Integer getId() {
         return id;
     }
@@ -38,5 +40,13 @@ public class Seek implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Integer getTtid() {
+        return ttid;
+    }
+
+    public void setTtid(Integer ttid) {
+        this.ttid = ttid;
     }
 }

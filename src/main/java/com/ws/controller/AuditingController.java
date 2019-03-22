@@ -1,6 +1,7 @@
 package com.ws.controller;
 
 import com.ws.bean.Salary;
+import com.ws.bean.Seek;
 import com.ws.bean.Xinwen;
 import com.ws.service.AuditingService;
 
@@ -49,6 +50,20 @@ public class AuditingController {
     @ResponseBody
     public String  updatesalarytingId(Integer id){
         auditingService.updatesalarytingId(id);
+        return "审核通过";
+    }
+
+    //咨询管理
+    @RequestMapping("tosqeekid")
+    @ResponseBody
+    public List<Seek>tosqeekid(){
+        return auditingService.tosqeekid();
+    }
+    //审核通过
+    @RequestMapping("updateseek")
+    @ResponseBody
+    public String updateseek(Integer id){
+        auditingService.updateseek(id);
         return "审核通过";
     }
 

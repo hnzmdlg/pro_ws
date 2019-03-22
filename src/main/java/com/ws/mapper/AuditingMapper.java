@@ -1,6 +1,7 @@
 package com.ws.mapper;
 
 import com.ws.bean.Salary;
+import com.ws.bean.Seek;
 import com.ws.bean.Xinwen;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -26,4 +27,12 @@ public interface AuditingMapper {
     //通过薪资审核
     @Update("UPDATE t_salary  set ttid=1 WHERE id =#{id}")
     void updatesalarytingId(Integer id);
+
+    //查询咨询审核
+    @Select("select * from t_seek where ttid=0")
+    List<Seek> tosqeekid();
+
+    //通过薪资审核
+    @Update("UPDATE t_seek  set ttid=1 WHERE id =#{id}")
+    void updateseek(Integer id);
 }

@@ -168,4 +168,10 @@ public class pageController {
 
         return "salaryList";
     }
+    //跳转咨询审核
+    @RequestMapping("toseekList")
+    public  String  toseekList(){
+
+        return "seekList";
+    }
 }

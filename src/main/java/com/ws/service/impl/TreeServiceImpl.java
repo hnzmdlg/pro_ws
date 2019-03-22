@@ -69,13 +69,13 @@ public class TreeServiceImpl  implements TreeService {
     public List<Tree> queryTree10(Integer uid,Tree tree) {return treeMapper.queryTree10(uid,tree); }
 
     @Override
-    public List<Tree> queryTree11(Integer uid, Tree tree) {
-        return treeMapper.queryTree11(uid,tree);
+    public List<Tree> queryTree17(Integer uid, Tree tree) {
+        return treeMapper.queryTree17(uid,tree);
     }
 
     @Override
-    public List<Tree> queryTree12(Integer uid, Tree tree) {
-        return treeMapper.queryTree12(uid,tree);
+    public List<Tree> queryTree18(Integer uid, Tree tree) {
+        return treeMapper.queryTree18(uid,tree);
     }
 
 
@@ -137,7 +137,15 @@ public class TreeServiceImpl  implements TreeService {
         }
     }
 
+    @Override
+    public List<Tree> queryTree11(Integer uid, Tree tree) {
+        return treeMapper.queryTree11(uid,tree);
+    }
 
+    @Override
+    public List<Tree> queryTree12(Integer uid, Tree tree) {
+        return treeMapper.queryTree12(uid,tree);
+    }
 
 
 }

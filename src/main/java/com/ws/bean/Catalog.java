@@ -10,10 +10,13 @@ public class Catalog implements Serializable {
     private String mlname;
     private Integer kid;
     private Integer type;
+
     private Integer lls;
     private  String oktime;
+
     @Transient
     private String kname;
+
 
     public Integer getType() {
         return type;
@@ -31,6 +34,7 @@ public class Catalog implements Serializable {
         this.lls = lls;
     }
 
+
     public String getOktime() {
         return oktime;
     }
@@ -38,7 +42,6 @@ public class Catalog implements Serializable {
     public void setOktime(String oktime) {
         this.oktime = oktime;
     }
-
 
 
     public Integer getId() {

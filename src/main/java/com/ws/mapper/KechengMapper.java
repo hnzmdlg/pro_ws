@@ -61,6 +61,7 @@ public interface KechengMapper {
     @Update("UPDATE t_kecheng k set k.ttid=1 WHERE k.id =#{id}")
     void updatekechenId(Integer id);
 
+
     @Select("SELECT * FROM t_catalog  ORDER BY lls DESC LIMIT 4")
     List<Catalog> kechenglist();
 
@@ -69,5 +70,10 @@ public interface KechengMapper {
     List<Catalog> querykechenglist();
 
 
+
+
+    //查询课程不分页 点击班型
+    //@Select("SELECT * FROM t_kecheng k WHERE k.ttid=1 ")
+    //List<Kecheng> querykechen4(Integer id);
 
 }

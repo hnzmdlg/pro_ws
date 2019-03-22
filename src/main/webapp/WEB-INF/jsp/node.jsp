@@ -32,7 +32,7 @@
 <body>
 
 <div id="searchDiv">
-    课程目录：<input class="easyui-textbox" id="mlname">
+    小节 ：<input class="easyui-textbox" id="sname">
     <a href="javascript:searchUSer()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">搜索</a>
 
     <a href="javascript:deleteBys()" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">批量删除</a>
@@ -44,19 +44,26 @@
 <!-- 定义新增表格 -->
 <div id="myDialog" class="easyui-dialog" style="width:400px;height:300px" data-options="modal:true,maximizable:true,resizable:true,buttons:'#myButton',closed:true,iconCls:'icon-save'">
     <form id="myForm" method="post">
-        <input style="display:none" name="id">
+        <input style="display:none" name="sid">
 
         <table>
             <tr>
-                <td>课程目录</td>
+                <td>小节</td>
                 <td>
-                    <input class="easyui-textbox" name="mlname">
+                    <input class="easyui-textbox" name="sname">
                 </td>
             </tr>
             <tr>
-                <td>课程</td>
+                <td>章节</td>
                 <td>
-                    <input class="easyui-combobox" name="kid" id="roleId">
+                    <input class="easyui-combobox" name="zid" id="roleId">
+                </td>
+            </tr>
+            <tr>
+                <td>类型</td>
+                <td>
+                    <input type="radio" value="0" name="type">免费
+                    <input type="radio" value="1" name="type">VIP
                 </td>
             </tr>
         </table>
@@ -80,9 +87,9 @@
     //查询角色
     function initRole(){
         $("#roleId").combobox({
-            url:"<%=request.getContextPath() %>/queryRoleKecheng",
-            valueField:"id",
-            textField:"kname"
+            url:"<%=request.getContextPath() %>/querySections",
+            valueField:"zid",
+            textField:"zname"
         })
 
 
@@ -98,11 +105,11 @@
         $("#add_img").prop("src", "");
         //清空富文本框
         //editor.html("");
-
         initRole()
+
         //打开
         $("#myDialog").dialog({
-            title:'新增用户',
+            title:'新增',
             closed:false
 
         })
@@ -118,7 +125,7 @@
     //新增//修改
     function add(){
         $("#myForm").form("submit",{
-            url:"<%=request.getContextPath() %>/addCatalog",
+            url:"<%=request.getContextPath() %>/addNode",
             success:function(){
                 $.messager.alert("提示","保存成功","info")
                 //关闭弹框
@@ -136,17 +143,18 @@
 
 
     //修改：回显
-    function openUpdateBy(id){
-        //alert(id)
+    function openUpdateBy(sid){
+        alert(sid)
         $.ajax({
-            url:"<%=request.getContextPath() %>/queryCatalogById",
+            url:"<%=request.getContextPath() %>/queryNodeById",
             type:"post",
-            data:{"id":id},
+            data:{id:sid},
             success:function(data){
-
-                initRole();
+                alert(data.sid+"===="+data.sname)
+                initRole()
                 //数据回显
                 $("#myForm").form("load",data);
+
 
                 //弹框
                 $("#myDialog").dialog({
@@ -158,15 +166,16 @@
     }
 
     //单个删除
-    function deleteByid(id){
+
+    function deleteByid(sid){
 
         //alert(id)
         $.messager.confirm("提示","是否确定删除!",function(r){
             if(r){
                 $.ajax({
-                    url:"<%=request.getContextPath() %>/deleteCatalogAll",
+                    url:"<%=request.getContextPath() %>/deleteNodeAll",
                     type:"post",
-                    data:{"id":id},
+                    data:{"id":sid},
                     success:function(){
                         $.messager.alert("提示消息","删除成功","info");
                         searchUSer();
@@ -198,9 +207,9 @@
                 for(var i=0;i<arr.length;i++){
                     //alert(arr[i].id);
                     if(ids==""){
-                        ids += arr[i].id;
+                        ids += arr[i].sid;
                     }else{
-                        ids += ","+arr[i].id;
+                        ids += ","+arr[i].sid;
                     }
                 }
 
@@ -208,7 +217,7 @@
 
             //alert(ids)
             $.ajax({
-                url:"<%=request.getContextPath() %>/deleteCatalogAll",
+                url:"<%=request.getContextPath() %>/deleteNodeAll",
                 type:"post",
                 data:{"id":ids},
                 success:function(){
@@ -227,27 +236,34 @@
     //条件查询
     function searchUSer(){
         $("#myTable").datagrid("load",{
-            mlname:$("#mlname").textbox("getValue")
+            sname:$("#sname").textbox("getValue")
         })
     }
 
     //查询
     $("#myTable").datagrid({
-        url:"<%=request.getContextPath()%>/queryCatalog",
+        url:"<%=request.getContextPath()%>/queryNode",
         columns:[[
             {field:'check',checkbox:true},
-            {field:'id',title:'编号',width:100,align:'center'},
-            {field:'kname',title:'课程',width:100,align:'center'},
-            {field:'mlname',title:'目录',width:100,align:'center'},
+            {field:'sid',title:'编号',width:100,align:'center'},
+            {field:'zname',title:'章节',width:100,align:'center'},
+            {field:'sname',title:'小节',width:100,align:'center'},
+            {field:'type',title:'类型',width:100,align:'center',formatter:function(value,row,index){
+                 if(value==0){
+                     return"免费";
+                 }else if(value==1){
+                     return"VIP";
+                 }
+                }},
             {field:'tools',title:'操作', width:100,align:'center',formatter:function(value,row,index){
-                    var str = "<a href='javascript:openUpdateBy("+row.id+")'>修改</a>"
-                    str+="| <a href='javascript:deleteByid("+row.id+")'>删除</a>"
+                    var str = "<a href='javascript:openUpdateBy("+row.sid+")'>修改</a>"
+                    str+="| <a href='javascript:deleteByid("+row.sid+")'>删除</a>"
                     return str;
                 }}
 
         ]],
         pagination:true,//开启分页
-        pageList:[1,2,3,4,5,10], //初始化页面大小选择列表
+        pageList:[1,2,3,4,5,6], //初始化页面大小选择列表
         pageSize:3 , //初始化每页显示条数，默认是10
         pageNumber:1, //当前页,默认是1
         fit:true,

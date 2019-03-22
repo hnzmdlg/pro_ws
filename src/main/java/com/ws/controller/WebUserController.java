@@ -2,6 +2,7 @@ package com.ws.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.ws.bean.Meal;
 import com.ws.bean.WebUser;
 import com.ws.service.WebUserService;
 import com.ws.utils.CommonCanstant;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 @Controller
 public class WebUserController {
@@ -122,5 +124,42 @@ public class WebUserController {
         }
         return "验证码发送成功";
     }
+    //查询套餐
+
+    @RequestMapping("querymeal")
+    @ResponseBody
+    public List<Meal> querymeal(Integer id) {
+        return webUserService.querymeal(id);
+
+    }
+
+
+    //购买会员  修改信息
+
+    @RequestMapping("updateMember")
+    @ResponseBody
+    public boolean updateMember() {
+        try {
+            webUserService.updateMember();
+            return true;
+        } catch (Exception e) {
+
+            System.out.println(e);
+            return false;
+        }
+
+
+    }
+
+
+
+    //修改 ： 新增
+    @RequestMapping("addMeal")
+    @ResponseBody
+    public void addMeal(Meal meal) {
+        webUserService.addMeal(meal);
+
+    }
+
 
 }

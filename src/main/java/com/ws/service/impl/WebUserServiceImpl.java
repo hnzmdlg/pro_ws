@@ -1,5 +1,6 @@
 package com.ws.service.impl;
 
+import com.ws.bean.Meal;
 import com.ws.bean.WebUser;
 import com.ws.mapper.WebUserMapper;
 import com.ws.service.WebUserService;
@@ -92,5 +93,27 @@ public class WebUserServiceImpl implements WebUserService {
     @Override
     public WebUser queryWebUserTtid(Integer id) {
         return webUserMapper.queryWebUserTtid(id);
+    }
+
+    @Override
+    public WebUser queryUserByLogin(String name) {
+        return webUserMapper.queryUserByLogin(name);
+    }
+    //查询套餐
+
+    @Override
+    public List<Meal> querymeal(Integer id) {
+        return webUserMapper.querymeal(id);
+    }
+    //修改医生状态
+    @Override
+    public void updateMember() {
+        webUserMapper.updateMember();
+
+    }
+
+    @Override
+    public void addMeal(Meal meal) {
+        webUserMapper.addMeal(meal);
     }
 }

@@ -53,6 +53,13 @@ public interface TreeMapper {
             "LEFT JOIN  t_role r on rp.role_id = r.id LEFT JOIN user u on r.id=u.roleid WHERE u.id=#{uid} and t.text like '%投诉%'")
     List<Tree> queryTree10(@Param("uid")Integer uid, Tree tree);
 
+    @Select("SELECT t.id,t.text,t.url,t.pid FROM t_tree t LEFT JOIN t_role_power rp on t.id = rp.power_id \n" +
+            "LEFT JOIN  t_role r on rp.role_id = r.id LEFT JOIN user u on r.id=u.roleid WHERE u.id=#{uid} and t.text like '%章节%'")
+    List<Tree> queryTree11(@Param("uid")Integer uid, Tree tree);
+    @Select("SELECT t.id,t.text,t.url,t.pid FROM t_tree t LEFT JOIN t_role_power rp on t.id = rp.power_id \n" +
+            "LEFT JOIN  t_role r on rp.role_id = r.id LEFT JOIN user u on r.id=u.roleid WHERE u.id=#{uid} and t.text like '%小节%'")
+    List<Tree> queryTree12(@Param("uid")Integer uid, Tree tree);
+
 
 
 
@@ -85,5 +92,10 @@ public interface TreeMapper {
     @Delete("delete  FROM t_prower_menu  where id=#{s} ")
     void deleteAll(String s);
 
-
+    @Select("SELECT t.id,t.text,t.url,t.pid FROM t_tree t LEFT JOIN t_role_power rp on t.id = rp.power_id \n" +
+            "LEFT JOIN  t_role r on rp.role_id = r.id LEFT JOIN user u on r.id=u.roleid WHERE u.id=#{uid} and t.text like '%培训%'")
+    List<Tree> queryTree13(Integer uid, Tree tree);
+    @Select("SELECT t.id,t.text,t.url,t.pid FROM t_tree t LEFT JOIN t_role_power rp on t.id = rp.power_id \n" +
+            "LEFT JOIN  t_role r on rp.role_id = r.id LEFT JOIN user u on r.id=u.roleid WHERE u.id=#{uid} and t.text like '%面试题%'")
+    List<Tree> queryTree14(Integer uid, Tree tree);
 }

@@ -1,5 +1,6 @@
 package com.ws.mapper;
 
+import com.ws.bean.Meal;
 import com.ws.bean.WebUser;
 import org.apache.ibatis.annotations.*;
 
@@ -46,4 +47,19 @@ public interface WebUserMapper {
     //查看审核状态
     @Select("SELECT * FROM s_webuser where id=#{id} ")
     WebUser queryWebUserTtid(Integer id);
+
+    //登录
+    @Select("select * from s_webuser where name = #{name}")
+    WebUser queryUserByLogin(String name);
+    //查询套餐
+    @Select("select *  from t_meal")
+    List<Meal> querymeal(Integer id);
+
+    //修改会员信息
+    //   @Update("UPDATE s_webuser w set w.ttid=1 WHERE w.id =#{id}")
+    void updateMember();
+
+    //新增
+    @Insert("INSERT INTO t_meal(name,mouth,money,img)VALUES(#{name},#{mouth},#{money},#{img})")
+    void  addMeal(Meal meal);
 }

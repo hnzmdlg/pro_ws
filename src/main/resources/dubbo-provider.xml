@@ -44,6 +44,16 @@
                    ref="treeService" />
     <dubbo:service interface="com.ws.service.RoleService"
                    ref="roleService" />
+    <dubbo:service interface="com.ws.service.SectionService"
+                   ref="sectionService" />
+    <dubbo:service interface="com.ws.service.TrainService"
+                   ref="trainService" />
+    <dubbo:service interface="com.ws.service.AnswerrService"
+                   ref="answerrService" />
+    <dubbo:service interface="com.ws.service.MuluService"
+                   ref="muluService" />
+    <dubbo:service interface="com.ws.service.InterViewService"
+                   ref="interViewService" />
 
     <!-- 和本地bean一样实现服务 -->
     <bean id="userBeanService" class="com.ws.service.impl.UserBeanServiceImpl" />
@@ -60,6 +70,11 @@
   <bean id="xinwenService" class="com.ws.service.impl.XinwenServiceImpl" />
   <bean id="treeService" class="com.ws.service.impl.TreeServiceImpl" />
   <bean id="roleService" class="com.ws.service.impl.RoleServiceImpl" />
+  <bean id="sectionService" class="com.ws.service.impl.SectionServiceImpl" />
+    <bean id="trainService" class="com.ws.service.impl.TrainServiceImpl" />
+    <bean id="answerrService" class="com.ws.service.impl.AnswerrServiceImpl" />
+    <bean id="muluService" class="com.ws.service.impl.MuluServiceImpl" />
+    <bean id="interViewService" class="com.ws.service.impl.InterViewServiceImpl" />
 
 
 

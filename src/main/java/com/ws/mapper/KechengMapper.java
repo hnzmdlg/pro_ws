@@ -59,4 +59,7 @@ public interface KechengMapper {
     //通过审核
     @Update("UPDATE t_kecheng k set k.ttid=1 WHERE k.id =#{id}")
     void updatekechenId(Integer id);
+    //查询课程不分页 点击班型
+    //@Select("SELECT * FROM t_kecheng k WHERE k.ttid=1 ")
+    //List<Kecheng> querykechen4(Integer id);
 }

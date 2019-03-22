@@ -80,10 +80,9 @@
     //查询角色
     function initRole(){
         $("#roleId").combobox({
-            url:"<%=request.getContextPath() %>queryRoleKecheng",
+            url:"<%=request.getContextPath() %>/queryRoleKecheng",
             valueField:"id",
-            textField:"kname",
-            multiple:true
+            textField:"kname"
         })
 
 
@@ -145,10 +144,9 @@
             data:{"id":id},
             success:function(data){
 
-
+                initRole();
                 //数据回显
                 $("#myForm").form("load",data);
-                initRole()
 
                 //弹框
                 $("#myDialog").dialog({

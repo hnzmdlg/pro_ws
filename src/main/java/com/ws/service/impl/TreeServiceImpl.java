@@ -129,7 +129,15 @@ public class TreeServiceImpl  implements TreeService {
         }
     }
 
+    @Override
+    public List<Tree> queryTree11(Integer uid, Tree tree) {
+        return treeMapper.queryTree13(uid,tree);
+    }
 
+    @Override
+    public List<Tree> queryTree12(Integer uid, Tree tree) {
+        return treeMapper.queryTree14(uid,tree);
+    }
 
 
 }

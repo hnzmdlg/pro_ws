@@ -175,4 +175,22 @@ public class TreeController {
     public  void  deleteAll(String id){
         treeService.deleteAll(id);
     }
+
+    //培训树  interviewTree
+    @RequestMapping("trainTree")
+    @ResponseBody
+    public List<Tree> trainTree(HttpSession session,Tree tree){
+        UserBean user = (UserBean) session.getAttribute("user");
+        Integer uid = user.getId();
+        return treeService.queryTree11(uid,tree);
+    }
+
+    //面试题树
+    @RequestMapping("interviewTree")
+    @ResponseBody
+    public List<Tree> interviewTree(HttpSession session,Tree tree){
+        UserBean user = (UserBean) session.getAttribute("user");
+        Integer uid = user.getId();
+        return treeService.queryTree12(uid,tree);
+    }
 }

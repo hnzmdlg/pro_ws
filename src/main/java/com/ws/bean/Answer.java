@@ -9,6 +9,18 @@ public class Answer implements Serializable {
     private  String contont;
     private  String createtime;
     private  Integer wid;
+    private  Integer uid;
+    private  String like;
+    private  Integer status;
+    private  String wname;
+
+    public String getWname() {
+        return wname;
+    }
+
+    public void setWname(String wname) {
+        this.wname = wname;
+    }
 
     public Integer getId() {
         return id;
@@ -40,5 +52,33 @@ public class Answer implements Serializable {
 
     public void setWid(Integer wid) {
         this.wid = wid;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
+    public String getLike() {
+        return like;
+    }
+
+    public void setLike(String like) {
+        this.like = like;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }

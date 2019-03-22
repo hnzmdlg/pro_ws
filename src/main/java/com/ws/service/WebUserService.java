@@ -1,8 +1,10 @@
 package com.ws.service;
 
+import com.ws.bean.Meal;
 import com.ws.bean.WebUser;
 
 import java.util.HashMap;
+import java.util.List;
 
 public interface WebUserService {
     HashMap<String, Object> queryWebUser(int page, int rows, WebUser webuser);
@@ -20,4 +22,11 @@ public interface WebUserService {
     void updateWebUserId(Integer id);
 
     WebUser queryWebUserTtid(Integer id);
+
+    WebUser queryUserByLogin(String name);
+    List<Meal> querymeal(Integer id);
+
+    void updateMember();
+
+    void    addMeal(Meal  meal);
 }

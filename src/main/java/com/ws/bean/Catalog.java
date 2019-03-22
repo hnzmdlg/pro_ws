@@ -9,8 +9,27 @@ public class Catalog implements Serializable {
     private Integer id;
     private String mlname;
     private Integer kid;
+    private Integer type;
     @Transient
     private String kname;
+    @Transient
+    private Integer lls;
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Integer getLls() {
+        return lls;
+    }
+
+    public void setLls(Integer lls) {
+        this.lls = lls;
+    }
 
     public Integer getId() {
         return id;

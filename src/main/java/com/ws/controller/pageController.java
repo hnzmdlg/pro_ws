@@ -140,6 +140,41 @@ public class pageController {
 
         return "weiTask";
     }
+    @RequestMapping("section")
+    public  String  section(){
+
+        return "section";
+    }
+    @RequestMapping("node")
+    public  String  node(){
+
+        return "node";
+    }
+
+    @RequestMapping("train")
+    public  String  train(){
+
+        return "train";
+    }
+
+    @RequestMapping("mulu")
+    public  String  mulu(){
+
+        return "mulu";
+    }
+
+    @RequestMapping("interview")
+    public  String  interview(){
+
+        return "interview";
+    }
+
+    @RequestMapping("answerr")
+    public  String  answerr(){
+
+        return "answerr";
+    }
+
 
 
 }

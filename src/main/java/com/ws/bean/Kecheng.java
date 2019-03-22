@@ -6,13 +6,16 @@ public class Kecheng implements Serializable {
 
     private static final long serialVersionUID = -2974925595632283124L;
     private  Integer id;
-    private  String kname;
-    private  Integer kss;
-    private  Integer lls;
-    private  String lteacher;
-    private  String oktime;
-    private  String kdesc;
-    private  String kurl;
+
+    private  String kname;//课程名称
+    private  Integer kss;//课记数
+    private  Integer lls;//浏览数
+    private  String lteacher;//教师名称
+    private  String oktime;//有效时间
+
+    private  String kdesc;//课程介绍
+    private  String kurl;//封面
+
 
 
     public static long getSerialVersionUID() {

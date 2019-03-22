@@ -6,9 +6,9 @@ public class Answer implements Serializable {
 
     private static final long serialVersionUID = 6229941346170802998L;
     private  Integer id;
-    private  String contont;
-    private  String createtime;
-    private  Integer wid;
+    private  String contont;//回答内容
+    private  String createtime;//回答时间
+    private  Integer wid;//回答对应id
 
     public Integer getId() {
         return id;

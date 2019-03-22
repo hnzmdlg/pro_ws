@@ -6,10 +6,10 @@ public class Advertisement implements Serializable {
 
 
     private static final long serialVersionUID = -556493573839358540L;
-    private Integer id;
-    private String url;
-    private String href;
-    private String content;
+    private Integer id;//主键
+    private String url;//封面
+    private String href;//网站地址
+    private String content;//广告描述
 
 
     public Integer getId() {

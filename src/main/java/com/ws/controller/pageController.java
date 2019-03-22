@@ -141,5 +141,37 @@ public class pageController {
         return "weiTask";
     }
 
+    //跳转新闻审核
+    @RequestMapping("toauditing")
+    public  String  toauditing(){
 
+        return "Auditing";
+    }
+
+    //跳转薪资
+    @RequestMapping("salary")
+    public  String  salary(){
+
+        return "Salary";
+    }
+
+    //跳转薪资
+    @RequestMapping("toseek")
+    public  String  toseek(){
+
+        return "Seek";
+    }
+
+    //跳转学员审核
+    @RequestMapping("salaryting")
+    public  String  salaryting(){
+
+        return "salaryList";
+    }
+    //跳转咨询审核
+    @RequestMapping("toseekList")
+    public  String  toseekList(){
+
+        return "seekList";
+    }
 }

@@ -1,5 +1,6 @@
 package com.ws.mapper;
 
+import com.ws.bean.Catalog;
 import com.ws.bean.Kecheng;
 import org.apache.ibatis.annotations.*;
 import org.springframework.data.repository.query.Param;
@@ -38,11 +39,11 @@ public interface KechengMapper {
     @Delete("delete from t_kecheng where id=#{s}")
     void deleteAll(String s);
 //新增
-@Insert("INSERT into t_kecheng(kname,kss,lls,lteacher,oktime,ktype,kdesc,kurl,ttid) VALUES(#{kname},#{kss},#{lls},#{lteacher},#{oktime},#{ktype},#{kdesc},#{kurl},0)")
+@Insert("INSERT into t_kecheng(kname,kss,lls,lteacher,oktime,kdesc,kurl,ttid) VALUES(#{kname},#{kss},#{lls},#{lteacher},#{oktime},#{kdesc},#{kurl},0)")
     void addKecheng(Kecheng kecheng);
     //修改
 
-    @Update("UPDATE t_kecheng  SET kname=#{kname} ,kss=#{kss},lls=#{lls},lteacher=#{lteacher},oktime=#{oktime},ktype=#{ktype},kdesc=#{kdesc},kurl=#{kurl},ttid=1  where id=#{id}")
+    @Update("UPDATE t_kecheng  SET kname=#{kname} ,kss=#{kss},lls=#{lls},lteacher=#{lteacher},oktime=#{oktime},kdesc=#{kdesc},kurl=#{kurl},ttid=1  where id=#{id}")
     void updateKecheng(Kecheng kecheng);
     //回显
     @Select("SELECT * FROM t_kecheng c where c.id=#{id}")
@@ -59,4 +60,14 @@ public interface KechengMapper {
     //通过审核
     @Update("UPDATE t_kecheng k set k.ttid=1 WHERE k.id =#{id}")
     void updatekechenId(Integer id);
+
+    @Select("SELECT * FROM t_catalog  ORDER BY lls DESC LIMIT 4")
+    List<Catalog> kechenglist();
+
+    //最新课程
+    @Select("SELECT * FROM t_catalog  ORDER BY oktime DESC LIMIT 4")
+    List<Catalog> querykechenglist();
+
+
+
 }
